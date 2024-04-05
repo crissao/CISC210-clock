@@ -44,13 +44,12 @@ void display_hours(int hours) {
 		binary[i] = hours%2;
 		hours /= 2;
 	}
-	for (int j = 3; j <= 7; j++) {
+	for (int j = 0; j < 5; j++) {
 		int pixel = 3;
 		if (binary[j] = 1) {
 			bm->pixel[6][pixel]=BLUE;
 		}
 		pixel += 1;
-
 	}
 }
 
