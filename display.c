@@ -2,8 +2,8 @@
 
 #define WHITE 0xFFFF
  
-pi_framebuffer_t *fb
-sense_fb_bitmap_t *bm
+pi_framebuffer_t *fb;
+sense_fb_bitmap_t *bm;
 
 int open_display(void){
 	fb=getFrameBuffer();
@@ -12,7 +12,7 @@ int open_display(void){
 }
 
 void display_time(int hours, int minutes, int seconds){
-    dispaly_colons();
+    display_colons();
     display_hours(hours);
     display_minutes(minutes);
     display_seconds(seconds);
