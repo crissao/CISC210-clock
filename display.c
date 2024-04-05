@@ -1,6 +1,7 @@
 #include "display.h" 
 
 #define WHITE 0xFFFF
+#define BLUE 0x0000FF
  
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
@@ -43,7 +44,14 @@ void display_hours(int hours) {
 		binary[i] = hours%2;
 		hours /= 2;
 	}
-	
+	for (int j = 3; j <= 7; j++)
+		int pixel = 3;
+		if (binary[j] = 1) {
+			bm->pixel[6][pixel]=BLUE;
+		}
+		pixel += 1;
+
+	}
 }
 
 void display_minutes(int minutes){
