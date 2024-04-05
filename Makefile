@@ -6,7 +6,7 @@ clockdisplay: main.o display.o
 	cc -o clockdisplay main.o display.o $(LDFLAGS)
 
 clean:
-	rm -f *.o clock
+	rm -f *.o clockdisplay
 main.o: main.c display.h
 	cc -c main.c -I ~/include
 display.o: display.c display.h
