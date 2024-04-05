@@ -37,8 +37,13 @@ void display_colons(void){
         bm->pixel[5][6]=WHITE;
 }
 
-void display_hours(int hours){
-
+void display_hours(int hours) {
+	char binary[5];
+	for (int i = 0; i < 5; i++) {
+		binary[i] = hours%2;
+		hours /= 2;
+	}
+	
 }
 
 void display_minutes(int minutes){
