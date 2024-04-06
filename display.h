@@ -7,7 +7,6 @@
 
 
 //joystick
-void allocate_fb(void);
 void free_fb(void);
 void change_time(int);
 void callbackFunc(unsigned int code);

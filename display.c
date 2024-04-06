@@ -27,6 +27,7 @@ void display_time(int hours, int minutes, int seconds){
     	display_hours(hours);
     	display_minutes(minutes);
     	display_seconds(seconds);
+	
 }
 
 void display_colons(void){
@@ -101,8 +102,19 @@ void close_display(void){
 
 void callbackFunc(unsigned int code){
 	if (code == KEY_UP || code == KEY_DOWN || code == KEY_LEFT || code == KEY_RIGHT){
-		
+		if (hours > 12){
+			dim_pixels();
+		}
+		if (hours == 0 || hours == 12){
+			hours = 12;
+		} else {
+			hours = hours%2;
+		}
 	}
+}
+
+void change_time(void){
+
 }
 
 void dim_pixels(void){

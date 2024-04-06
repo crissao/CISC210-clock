@@ -11,7 +11,7 @@ display.o: display.c display.h
 	cc -c display.c -I ~/include
 
 run:
-	./clockdisplay & ./clock.sh
+	./clock.sh | ./clockdisplay
 
 clean:
 	rm -f *.o clockdisplay
