@@ -1,5 +1,6 @@
 #include "display.h" 
 
+#define BLACK 0x0000
 #define WHITE 0xFFFF
 #define BLUE 0x0000FF
  
@@ -8,7 +9,7 @@ sense_fb_bitmap_t *bm;
 
 int open_display(void){
 	fb=getFrameBuffer();
-    bm=fb->bitmap;
+	bm=fb->bitmap;
 	return 0;
 }
 
@@ -39,6 +40,7 @@ void display_colons(void){
 }
 
 void display_hours(int hours) {
+	clearFrameBuffer(fb,BLACK);
 	char binary[5];
 	for (int i = 0; i < 5; i++) {
 		binary[i] = hours%2;
@@ -62,6 +64,8 @@ void display_seconds(int seconds){
 }
 
 void close_display(void){
-
+        clearFrameBuffer(fb,BLACK);
+	sleep(1);
+        freeFrameBuffer(fb);
 }
 
