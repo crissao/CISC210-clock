@@ -3,12 +3,12 @@
 #define BLACK 0x0000
 #define WHITE 0xFFFF
 #define BLUE 0x0000FF
-#define GREEN 0x00FF00
-#define RED 0xFF0000
+#define GREEN 0x07E0
+#define RED 0xE10600
 #define DIMWHITE 0xFFFF
 #define DIMBLUE 0x0000FF
-#define DIMGREEN 0x00FF00
-#define DIMRED 0xFF0000
+#define DIMGREEN 0x07E0
+#define DIMRED 0xE10600
 
 
 
