@@ -3,6 +3,7 @@
 #define BLACK 0x0000
 #define WHITE 0xFFFF
 #define BLUE 0x0000FF
+#define GREEN 0x00FF00
  
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
@@ -18,6 +19,8 @@ void display_time(int hours, int minutes, int seconds){
     display_hours(hours);
     display_minutes(minutes);
     display_seconds(seconds);
+    sleep(1);
+    clearFrameBuffer(fb, BLACK);
 }
 
 void display_colons(void){
@@ -40,7 +43,6 @@ void display_colons(void){
 }
 
 void display_hours(int hours) {
-	clearFrameBuffer(fb,BLACK);
 	char binary[5];
 	for (int i = 0; i < 5; i++) {
 		binary[i] = hours%2;
@@ -56,7 +58,18 @@ void display_hours(int hours) {
 }
 
 void display_minutes(int minutes){
-
+	char binary[6]
+ 	for (int i = 0; i < 6; i++) {
+		binary[i] = hours%2;
+		hours /= 2;
+	}
+	int pixel = 7;
+	for (int j = 0; j < 6; j++) {
+		if (binary[j] == 1) {
+			bm->pixel[3][pixel]=GREEN;
+		}
+		pixel -= 1;
+	}
 }
 
 void display_seconds(int seconds){
