@@ -99,7 +99,7 @@ void close_display(void){
 	sleep(1);
         freeFrameBuffer(fb);
 }
-
+/*
 void callbackFunc(unsigned int code){
 	if (code == KEY_UP || code == KEY_DOWN || code == KEY_LEFT || code == KEY_RIGHT){
 		if (hours > 12){
@@ -132,3 +132,4 @@ void dim_pixels(void){
 		}
 	}
 }
+*/
