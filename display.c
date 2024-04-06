@@ -56,10 +56,10 @@ void display_hours(int hours) {
 }
 
 void display_minutes(int minutes){
-	char binary[6]
+	char binary[6];
  	for (int i = 0; i < 6; i++) {
-		binary[i] = hours%2;
-		hours /= 2;
+		binary[i] = minutes%2;
+		minutes /= 2;
 	}
 	int pixel = 7;
 	for (int j = 0; j < 6; j++) {
