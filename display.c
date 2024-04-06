@@ -4,7 +4,8 @@
 #define WHITE 0xFFFF
 #define BLUE 0x0000FF
 #define GREEN 0x00FF00
- 
+#define RED 0xFF0000
+
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
 
@@ -71,7 +72,18 @@ void display_minutes(int minutes){
 }
 
 void display_seconds(int seconds){
-
+	char binary[6];
+	for (int i = 0; i < 6; i++) {
+		binary[i] = seconds%2;
+		seconds /= 2;
+	}
+	int pixel = 7;
+	for (int j = 0; j < 6; j++) {
+		if (binary[j] == 1) {
+			bm->pixel[3][pixel]=RED;
+		}
+		pixel -= 1;
+	}
 }
 
 void close_display(void){
