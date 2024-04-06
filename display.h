@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "sense.h"
+#include <linux/input.h>
+#include <stddef.h>
 
 
 //joystick
 void allocate_fb(void);
 void free_fb(void);
-void display_dot(char x, char y);
+void change_time(int);
 void callbackFunc(unsigned int code);
 
 //clock

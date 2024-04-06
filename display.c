@@ -5,6 +5,12 @@
 #define BLUE 0x0000FF
 #define GREEN 0x00FF00
 #define RED 0xFF0000
+#define DIMWHITE 0xFFFF
+#define DIMBLUE 0x0000FF
+#define DIMGREEN 0x00FF00
+#define DIMRED 0xFF0000
+
+
 
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
@@ -16,10 +22,11 @@ int open_display(void){
 }
 
 void display_time(int hours, int minutes, int seconds){
-    display_colons();
-    display_hours(hours);
-    display_minutes(minutes);
-    display_seconds(seconds);
+	clearFrameBuffer(fb,BLACK);
+	display_colons();
+    	display_hours(hours);
+    	display_minutes(minutes);
+    	display_seconds(seconds);
 }
 
 void display_colons(void){
@@ -92,3 +99,24 @@ void close_display(void){
         freeFrameBuffer(fb);
 }
 
+void callbackFunc(unsigned int code){
+	if (code == KEY_UP || code == KEY_DOWN || code == KEY_LEFT || code == KEY_RIGHT){
+		
+	}
+}
+
+void dim_pixels(void){
+	for (int x=0; x<8; x++){
+		for(int y=0; y<8; y++){
+			if (bm->pixel[x][y] == WHITE){
+				bm->pixel[x][y] == DIMWHITE;
+			} else if (bm->pixel[x][y] == BLUE){
+				bm->pixel[x][y] = DIMBLUE;
+			} else if (bm->pixel[x][y] == GREEN){
+				bm->pixel[x][y] = DIMGREEN;
+			} else if (bm->pixel[x][y] == RED){
+				bm->pixel[x][y] = DIMRED;
+			}
+		}
+	}
+}
