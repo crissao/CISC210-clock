@@ -1,7 +1,7 @@
 #include "display.h"
 #define BLACK 0x0000
 
-pi_framebuffer_t *fb;
+
 
 int main(void){
 	int hours,minutes,seconds;
@@ -13,7 +13,7 @@ int main(void){
 		display_time(hours,minutes,seconds);
 		pollJoystick(joystick,callbackFunc,1000);
 		scanf("%02d:%02d:%02d",&hours,&minutes,&seconds);
-   		clearFrameBuffer(fb, BLACK);
+   		clearFrameBuffer(&pi_framebuffer_t, BLACK);
 	}
 	freeJoystick(joystick);
 	close_display();
