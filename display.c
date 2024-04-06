@@ -19,8 +19,6 @@ void display_time(int hours, int minutes, int seconds){
     display_hours(hours);
     display_minutes(minutes);
     display_seconds(seconds);
-    sleep(1);
-    clearFrameBuffer(fb, BLACK);
 }
 
 void display_colons(void){
