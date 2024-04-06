@@ -7,6 +7,7 @@
 void allocate_fb(void);
 void free_fb(void);
 void display_dot(char x, char y);
+void callbackFunc(unsigned int code);
 
 //clock
 int open_display(void);
