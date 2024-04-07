@@ -14,7 +14,7 @@
 
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
-int current_hours=0;
+int is_24 = 1;
 
 int open_display(void) {
 	fb=getFrameBuffer();
@@ -56,11 +56,21 @@ void display_colons(void){
 }
 
 void display_hours(int hours) {
+	if (is_24 !=1){
+		if (hours > 12){
+			dim_pixels();
+		}
+		if (hours == 0 || hours == 12){
+			hours = 12;
+		} else {
+			hours = hours%2;
+		}
+	}
 	char binary[5];
 	for (int i = 0; i < 5; i++) {
 		binary[i] = hours%2;
 		hours /= 2;
-	}
+	}	
 	int pixel = 7;
 	for (int j = 0; j < 5; j++) {
 		if (binary[j] == 1) {
@@ -106,26 +116,16 @@ void close_display(void){
         freeFrameBuffer(fb);
 }
 
-void set_current_hours(int hours){
-	current_hours = hours;
-}
-
 void callbackFunc(unsigned int code){
-	if (code == KEY_UP || code == KEY_DOWN || code == KEY_LEFT || code == KEY_RIGHT){
-		change_time();	
+	if(code == KEY_UP || code == KEY_DOWN || code == KEY_LEFT || code == KEY_RIGHT){
+		if (is_24 == 1){
+		is_24 = 0;
+		} else {
+		is_24 = 1;
+		}	
 	}
 }
 
-void change_time(void){
-	if (current_hours > 12){
-			dim_pixels();
-		}
-		if (current_hours == 0 || current_hours == 12){
-			current_hours = 12;
-		} else {
-			current_hours = current_hours%2;
-		}
-}
 
 void dim_pixels(void){
 	for (int x=0; x<8; x++){
