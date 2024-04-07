@@ -27,12 +27,17 @@ int open_display(void) {
 	}
 }
 
-void display_time(int hours, int minutes, int seconds){
+void display_time(int hours, int minutes, int seconds){	
 	clearFrameBuffer(fb,BLACK);
 	display_colons();
     	display_hours(hours);
     	display_minutes(minutes);
     	display_seconds(seconds);
+	if (is_24 !=1){
+		if (hours > 12){
+			dim_pixels();
+		}
+	}
 	
 }
 
@@ -56,10 +61,7 @@ void display_colons(void){
 }
 
 void display_hours(int hours) {
-	if (is_24 !=1){
-		if (hours > 12){
-			dim_pixels();
-		}
+	if (is_24 !=1){	
 		if (hours == 0 || hours == 12){
 			hours = 12;
 		} else {
