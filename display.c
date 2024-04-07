@@ -63,7 +63,7 @@ void display_hours(int hours) {
 		if (hours == 0 || hours == 12){
 			hours = 12;
 		} else {
-			hours = hours%2;
+			hours = hours%12;
 		}
 	}
 	char binary[5];
