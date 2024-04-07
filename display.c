@@ -5,10 +5,10 @@
 #define BLUE 0x0000FF
 #define GREEN 0x07E0
 #define RED 0x8000
-#define DIMWHITE 0xFFFF
-#define DIMBLUE 0x0000FF
-#define DIMGREEN 0x07E0
-#define DIMRED 0x8000
+#define DIMWHITE 0x5AEB
+#define DIMBLUE 0x0007
+#define DIMGREEN 0x3200
+#define DIMRED 0x3000
 
 
 
