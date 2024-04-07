@@ -132,11 +132,14 @@ void dim_pixels(void){
 		for(int y=0; y<8; y++){
 			if (bm->pixel[x][y] == WHITE){
 				bm->pixel[x][y] = DIMWHITE;
-			} else if (bm->pixel[x][y] == BLUE){
+			}
+			if (bm->pixel[x][y] == BLUE){
 				bm->pixel[x][y] = DIMBLUE;
-			} else if (bm->pixel[x][y] == GREEN){
+			} 
+			if (bm->pixel[x][y] == GREEN){
 				bm->pixel[x][y] = DIMGREEN;
-			} else if (bm->pixel[x][y] == RED){
+			} 
+			if (bm->pixel[x][y] == RED){
 				bm->pixel[x][y] = DIMRED;
 			}
 		}
