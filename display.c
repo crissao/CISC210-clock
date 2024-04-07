@@ -14,6 +14,7 @@
 
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
+int current_hours;
 
 int open_display(void) {
 	fb=getFrameBuffer();
@@ -104,22 +105,26 @@ void close_display(void){
 	sleep(1);
         freeFrameBuffer(fb);
 }
-/*
+
+void set_current_hours(int hours){
+	current_hours = hours;
+}
+
 void callbackFunc(unsigned int code){
 	if (code == KEY_UP || code == KEY_DOWN || code == KEY_LEFT || code == KEY_RIGHT){
-		if (hours > 12){
-			dim_pixels();
-		}
-		if (hours == 0 || hours == 12){
-			hours = 12;
-		} else {
-			hours = hours%2;
-		}
+		change_time();	
 	}
 }
 
 void change_time(void){
-
+	if (current_hours > 12){
+			dim_pixels();
+		}
+		if (current_hours == 0 || current_hours == 12){
+			current_hours = 12;
+		} else {
+			current_hours = current_hours%2;
+		}
 }
 
 void dim_pixels(void){
@@ -137,4 +142,4 @@ void dim_pixels(void){
 		}
 	}
 }
-*/
+

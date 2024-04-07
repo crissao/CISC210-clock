@@ -7,9 +7,11 @@
 
 
 //joystick
+void set_current_hours(int);
 void free_fb(void);
-void change_time(int);
+void change_time(void);
 void callbackFunc(unsigned int code);
+void dim_pixels(void);
 
 //clock
 int open_display(void);
