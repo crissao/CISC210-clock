@@ -4,11 +4,11 @@
 #define WHITE 0xFFFF
 #define BLUE 0x0000FF
 #define GREEN 0x07E0
-#define RED 0xE10600
+#define RED 0x8000
 #define DIMWHITE 0xFFFF
 #define DIMBLUE 0x0000FF
 #define DIMGREEN 0x07E0
-#define DIMRED 0xE10600
+#define DIMRED 0x8000
 
 
 
@@ -88,7 +88,7 @@ void display_seconds(int seconds){
 	int pixel = 7;
 	for (int j = 0; j < 6; j++) {
 		if (binary[j] == 1) {
-			bm->pixel[3][pixel]=RED;
+			bm->pixel[0][pixel]=RED;
 		}
 		pixel -= 1;
 	}
