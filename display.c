@@ -14,7 +14,7 @@
 
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
-int current_hours;
+int current_hours=0;
 
 int open_display(void) {
 	fb=getFrameBuffer();
@@ -131,7 +131,7 @@ void dim_pixels(void){
 	for (int x=0; x<8; x++){
 		for(int y=0; y<8; y++){
 			if (bm->pixel[x][y] == WHITE){
-				bm->pixel[x][y] == DIMWHITE;
+				bm->pixel[x][y] = DIMWHITE;
 			} else if (bm->pixel[x][y] == BLUE){
 				bm->pixel[x][y] = DIMBLUE;
 			} else if (bm->pixel[x][y] == GREEN){
