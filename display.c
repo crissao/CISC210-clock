@@ -15,10 +15,15 @@
 pi_framebuffer_t *fb;
 sense_fb_bitmap_t *bm;
 
-int open_display(void){
+int open_display(void) {
 	fb=getFrameBuffer();
 	bm=fb->bitmap;
-	return 0;
+	if (fb == NULL || bm->pixel[1][2] == WHITE) {
+		return 0;
+	}
+	else {
+		return 1;
+	}
 }
 
 void display_time(int hours, int minutes, int seconds){
